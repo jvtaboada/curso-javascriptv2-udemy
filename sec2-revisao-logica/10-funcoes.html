@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste funções JS</title>
+    </head>
+    <body>
+        
+        <script>
+            //declaração 
+            //REGULAR FUNCTION
+            function teste() {
+                document.write("Hello World");
+            }
+            
+            //chamada
+            teste();
+
+            //FUNCTION EXPRESS
+            const teste2 = function() {
+                console.log("Hello World expression function");
+            }
+
+            teste2();
+            
+            //ARROW FUNCTION
+            const teste3 = () => {
+                console.log("Hello World arrow function");
+            }
+    
+            teste3();
+
+            function obtemDiaSemana(){
+                return new Date().getDay();
+            }
+
+            let dia = obtemDiaSemana();
+
+            console.log(dia); //igual embaixo
+            console.log(obtemDiaSemana());
+
+
+            //FUNÇÕES E PARÂMETROS
+            /*function somar(n1, n2){
+                return n1+n2;
+            }*/
+
+            let soma = somar(3, 5);
+
+            console.log(soma); //ok
+            console.log(somar(7,2)); //ok
+
+            function somar(n1 = 0, n2 = 0){ //atenção: é coisa recente, não funciona em todos os browsers
+                return n1+n2;
+            } //para caso chamar a função com os paramêtros bugados
+
+            console.log(somar(7));
+            console.log(somar());
+        </script>
+    </body>
+</html>

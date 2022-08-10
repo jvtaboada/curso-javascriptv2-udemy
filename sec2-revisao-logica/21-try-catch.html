@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch test</title>
+</head>
+<body>
+    
+    <script src="./21-soma.js"></script> <!-- SE GERAR UM ERRO AQUI, PARA TODO O JAVASCRIPT, PÓRÉM SE DER ERRO NO BLOCO TRY CATCH, ELE CONTINUA! -->
+
+    <script>
+        // console.log(sum(2, "vc"));
+        // alert(sum(3, "aadas"));
+        // document.write(sum(9, 6));
+        alert(sum(3, 2));
+
+        let soma = "";
+
+        try{ //tente fazer isso
+           soma = sum(3, 2) //se gerar erro, o catch pega
+        } catch (e){ //pegamo o erro, agora vamos tratar abaixo 
+            alert("Ocorreu um erro");
+            console.log(e);
+        } finally{ //ESSE EXECUTA SE DÁ ERRO OU NÃO
+            console.log("Bloco finally");
+        }
+
+        console.log(soma);
+        console.log("Fim do programa");
+    </script>
+</body>
+</html>

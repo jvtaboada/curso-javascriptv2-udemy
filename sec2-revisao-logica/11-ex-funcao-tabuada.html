@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Função Tabuada</title>
+    </head>
+    <body>
+        <h1>Funções - Tabuada</h1>
+
+        <button onclick="mostrarTabuada()">Mostrar Tabuada</button>
+        <button onclick="limparTabuada()">Limpar Tabuada</button>
+
+        <div id="output"></div>
+
+        
+        <!--
+            JEITO MERDA QUE EU FIZ
+            <script>
+            const title = document.getElementById("title");
+            const tabuada = document.getElementById("tabuada");
+            const valorDigitado = document.getElementById("valor");
+            valorDigitado.value = Number(valorDigitado.value);
+
+            function mostrarTabuada(){
+                title.innerHTML = `Tabuada do ${valorDigitado.value} <br>`;
+                
+                for(let i=1; i<=1000; i++){
+                    document.write(`${valorDigitado.value} x ${i} = ${valorDigitado.value * i} <br>`);
+                }
+                //quando clickar no mostrar tabuada
+                //mostrar a tabuada desse numero de 1 a 1000
+
+                //toda informação que vem da interface do usuario é string (por ex, numero que vem do usuário, converter pra numero)
+            }
+        </script>-->
+
+        <script>
+            const output = document.getElementById("output");
+
+            function mostrarTabuada(){
+                let numero = parseFloat(prompt("Insira um número para cáculo de tabuada"));
+
+                let msg = "";
+
+                for(let i = 0; i <= 1000; i++){
+                    msg += `${numero} x ${i} = ${(i * numero)} <br>`
+                    if (i===10){
+                        break;
+                        //continue pula
+                        //return kita da função, ignora toda o resto
+                    }
+                }
+
+                output.innerHTML = msg;
+            }
+
+            function limparTabuada(){
+                output.innerHTML = "";
+                //output.innerText = ""; -> a dif é que não aceita tag html, só texto mesmo
+            }
+        </script>
+    </body>
+</html>

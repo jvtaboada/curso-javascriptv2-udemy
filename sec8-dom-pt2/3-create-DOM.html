@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container2{
+            background-color: #ccc;
+            padding: 15px;
+        }
+
+        .container2 p{
+            border: 1px solid red;
+            padding: 10px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste DOM</h1>
+
+    <!-- beforebegin -->
+    <div class="container2">
+        <!-- afterbegin -->
+        <p>paragrafo 1</p>
+        <p>paragrafo 2</p>
+        <p>paragrafo 3</p>
+        <p>paragrafo 4</p>
+        <!-- beforeend -->
+    </div>
+    <!-- afterend -->
+
+    <div class="container">
+        <p>Teste 1</p>
+        <p>Lorem <a href="#">link</a>asdoijskad</p>
+        <p>Teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>Item 2.A</li>
+                    <li>Item 2.B</li>
+                    <li>Item 2.C</li>
+                    <li>asfasfsad</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+        createElement
+        createAttribute
+        setAttributeNode
+        createTextNode
+        appendChild
+
+        prepend
+        */
+
+        const title = document.createElement("h1");
+        const atributo = document.createAttribute("id");
+        atributo.value = "titulo"
+        title.setAttributeNode(atributo);
+
+        title.setAttribute("title", "title inserido dinamicamente");
+        title.setAttribute("style", "color: pink");
+
+        const text = document.createTextNode("Criar nós no DOM");
+        title.appendChild(text);
+
+        title.textContent = "texto inserido com text content";
+
+        // document.querySelector(".container").appendChild(title);
+        // document.querySelector(".container").append(title, "texto novo");
+
+        console.log(title);
+
+        const title2 = document.createElement("h1");
+        title2.textContent = "titulo 2 --->";
+        document.querySelector(".container").insertBefore(title2, document.querySelector("ul"));
+
+        const list = document.querySelector("ul");
+        const container = document.querySelector(".container");
+
+        container.insertBefore(title2, list);
+        container.insertBefore(title2, container.firstChild);
+
+        let sublevel = document.querySelector("ul ul");
+        sublevel = sublevel.cloneNode(true); //clonar a 'ul' com todos os filhos dele
+
+        const h2 = document.querySelector("h2");
+
+        container.insertBefore(sublevel, h2.nextElementSibling);
+
+        /*
+        insertBefore(A SER INSERIDO, ONDE) = apenas nós 
+        cloneNode(boolean)
+        */
+
+        const segundoParagrafo = container.firstElementChild.nextElementSibling.nextElementSibling;
+        console.log(segundoParagrafo);
+        
+        segundoParagrafo.before("texto inserido com before", "outro texto");
+
+        const span = document.createElement("span");
+        span.textContent = "span dinâmica";
+
+        segundoParagrafo.after(span);
+
+        /*
+        after
+        before
+        -adicionar antes e depois, pode passar nó, mais de um texto etc.
+        */
+
+        const container2 = document.querySelector(".container2");
+
+        container2.insertAdjacentHTML("beforebegin", "<b> texto inserido </b>");
+        container2.insertAdjacentHTML("afterbegin", "<b> texto inserido 2</b>");
+        container2.insertAdjacentHTML("beforeend", "<b> texto inserido 3</b>");
+        container2.insertAdjacentHTML("afterend", "<b> texto inserido 4</b>");
+
+        container2.insertAdjacentText("afterbegin", "<b> texto inserido 555 </b>");
+
+        const em = document.createElement("em");
+        em.textContent = "texto com enfase";
+        container2.insertAdjacentElement("beforeend", em);
+        
+        /*
+        insertAdjacentHTML => beforebegin, afterbegin, beforeend, afterend
+        insertAdjacentText => 
+        insertAdjacentElement
+        */
+
+        // list.remove(); -> não funciona no IE 11
+        // parentNode.removeChild(list)
+
+        list.parentElement.removeChild(list);
+
+        const parent = document.body;
+        const novoFilho = container.querySelector("h1").cloneNode(true);
+        const velhoFilho = document.querySelector("h1");
+        parent.replaceChild(novoFilho, velhoFilho);
+
+        /*
+        remove()
+        removeChild()
+        replaceChild(onde vai, qual vai)
+        */
+
+    </script>
+</body>
+</html>

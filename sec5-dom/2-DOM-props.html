@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1 id="title1">Curso Javascript Completo 2018</h1>
+        
+        <main class="cmain" id="idmain">
+            <h2>subtitulo</h2>
+            <p>Lorem ipsul dolor sit amet, consectetur adipisicing elit.</p>
+        </main>
+
+        <form action="#">
+            <input type="text" id="txtNome" placeholder="nome" readonly><br><br>
+            <input type="text" id="txtEmail" placeholder="email" class="input input-email"> <br><br>
+
+            <input type="checkbox" id="contrato" onchange="verificaCheck()">
+            <label for="contrato">Li e aceito o contrato</label><br><br>
+            <textarea name="" id="" cols="30" rows="10" readonly>Este contrato nos dá direito a....</textarea><br><br>
+            <input type="submit" id="btn-cadastro" value="Cadastrar">
+            <div id="msgCheck"></div>
+        </form>
+
+        <script>
+            // const txtNome = document.querySelector("#txtNome");
+            // const txtEmail = document.querySelector("#txtEmail");
+            // const labelContrato = document.querySelector("label[for='contrato']");
+
+            // console.log(labelContrato.htmlFor);
+            // console.log(txtEmail.className);
+            
+            // txtNome.value = "João";
+            // txtNome.disabled = true;
+            // txtEmail.readOnly = true;
+
+            const btnCadastro = document.getElementById("btn-cadastro");
+            btnCadastro.disabled = true;
+
+            function verificaCheck(){
+                const checked = document.querySelector("#contrato").checked;
+                const msg = document.getElementById("msgCheck");
+
+                if(checked == true){
+                    btnCadastro.disabled = false;
+                    if(msg){
+                        msg.innerHTML = "";
+                    }
+                } else{
+                    btnCadastro.disabled = true;
+                    msg.innerHTML = "*É necessário aceitar o contrato.";
+                }
+            }
+
+            </script>
+    </body>
+</html>

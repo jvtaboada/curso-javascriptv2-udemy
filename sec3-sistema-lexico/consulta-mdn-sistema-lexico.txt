@@ -1,0 +1,2 @@
+Segue a URL da página do sistema lexico do JS da documentação oficial, da MDN:
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar

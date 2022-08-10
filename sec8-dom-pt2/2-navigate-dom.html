@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teste DOM</h1>
+
+    <div class="container">
+        <p>Teste 1</p>
+        <p>Lorem <a href="#">link</a>.</p>
+        <p>Teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>Item 2.A</li>
+                    <li>Item 2.B</li>
+                    <li>Item 2.C</li>
+                    <li>asfasfsad</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+            parentElement vs parentNode
+            nextElementsSibling / nextSibling
+            previousElementsSibling / previousSibling
+            childNodes vs children
+            firstChild vs firstElementChild / lastChild vs lastElementChild
+        */
+
+        console.log(document.body);
+        console.log(document.body.parentElement);
+        console.log(document.body.parentNode);
+
+        const html = document.body.parentElement;
+
+        console.log(html.parentElement);
+        console.log(html.parentNode);
+
+
+        const h2 = document.querySelector("h2");
+        const h2PnextSibling = h2.nextElementSibling;
+        h2PnextSibling.style.background = "green";
+
+        console.log(h2.nextElementSibling);
+        console.log(h2.previousElementSibling);
+
+        const link = document.querySelector("a");
+        const list = document.querySelector("ul ul");
+
+        console.log(link);
+
+        console.log(link.parentElement.childNodes);
+        console.log(link.parentElement.children);
+
+        console.log(link.parentElement.firstChild);
+        console.log(link.parentElement.firstElementChild);
+
+        console.log(list.lastElementChild.hasChildNodes());
+        console.log(list.lastElementChild.childNodes);
+        
+    </script>
+</body>
+</html>

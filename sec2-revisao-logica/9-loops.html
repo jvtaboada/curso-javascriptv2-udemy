@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste de loop</title>
+    </head>
+    <body>
+       
+        <script>
+            let n = prompt("Digite um numero");
+            let indice = 11;
+
+            while(indice < 10){    
+                document.write(`${indice} x ${n} = ${(indice * n)} <br>`);
+                indice++;
+            }
+            document.write("Saiu do loop while <br><br>");
+
+            //do-while: precisa ser executado 1x pelo menos
+
+            do{
+                document.write(`${indice} x ${n} = ${(indice * n)} <br>`);
+                indice++;
+            }while(indice <= 10);
+
+            document.write("Saiu do loop do-while <br><br>");
+            
+            for(let i=0; i<25; i++){
+                if(i === 5){
+                    document.write("Pulando pra proxima hein <br>");
+                    continue;
+                    
+                }
+                document.write(`${i} x ${n} = ${(i * n)} <br>`);
+            }
+            document.write("Saiu do loop for <br><br>");
+
+            do{
+                if(indice > 10){
+                    alert("Indice maior que 10");
+                    break; //>>INTERROMPE O LOOPING<<
+                }
+                document.write(`${indice} x ${n} = ${(indice * n)} <br>`);
+                indice++;
+            }while(indice <= 10);
+
+
+        </script>
+    </body>
+</html>

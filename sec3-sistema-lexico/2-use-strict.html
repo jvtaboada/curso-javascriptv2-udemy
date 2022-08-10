@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //"use strict";
+
+        /* USE STRICT: primeira linha do cdg javascript -> deixa mais seguro
+        - bug de uso de váriasvei não declaradas
+        - variaveis duplicas na função multiplicas(n1, n1) -> bug operação
+        - funções retornam objetos, pra não bugar o escopo global
+        - criação de propriedades em não-objetos (msg.count)
+        */
+
+        //x = 10;
+        //let x = 10;
+
+        function Teste(){
+            "use strict"
+            console.log(this);
+            this.a = "a"; //poluindo o escopo global, this assume a windows toda e nã o objeto em questão
+        }
+        Teste();
+
+        let msg = "uma string";
+        msg.count = 0; //criando uma propriedade em uma string, só deve ser criado em objeto
+
+        console.log(msg);
+    </script>
+</body>
+</html>
